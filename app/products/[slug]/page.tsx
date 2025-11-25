@@ -10,6 +10,7 @@ import ProductReviews from '@/components/product/product-reviews';
 import { generateImageUrl } from '@/lib/utils';
 import type { Product } from '@/types';
 import { useCart } from '@/contexts/cart-context';
+import Loading from './loading';
 
 interface ProductDetailPageProps {
     params: Promise<{
@@ -145,7 +146,7 @@ const ProductDetailPage: React.FC<ProductDetailPageProps> = ({ params }) => {
 
     // Loading state is handled by loading.tsx
     if (loading || !product) {
-        return null;
+        return <Loading />;
     }
 
     return (

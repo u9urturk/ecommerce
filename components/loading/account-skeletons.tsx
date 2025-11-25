@@ -168,3 +168,186 @@ export function WishlistPageSkeleton() {
     </div>
   );
 }
+
+export function AddressesPageSkeleton() {
+  return (
+    <div className="min-h-screen bg-background">
+      <div className="container mx-auto px-4 py-8 max-w-4xl">
+        {/* Header */}
+        <div className="flex items-center gap-4 mb-8">
+          <Skeleton height="h-10" width="w-24" />
+          <div className="flex-1 space-y-2">
+            <Skeleton height="h-8" width="w-48" />
+            <Skeleton height="h-4" width="w-64" />
+          </div>
+          <Skeleton height="h-10" width="w-32" />
+        </div>
+
+        {/* Addresses List */}
+        <div className="space-y-4">
+          {Array.from({ length: 3 }, (_, i) => (
+            <div key={i} className="bg-card border border-border rounded-lg p-6">
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center gap-3">
+                  <Skeleton height="h-5" width="w-5" />
+                  <div className="space-y-1">
+                    <Skeleton height="h-5" width="w-32" />
+                    <Skeleton height="h-4" width="w-20" />
+                  </div>
+                </div>
+                <div className="flex gap-2">
+                  {Array.from({ length: 3 }, (_, j) => (
+                    <Skeleton key={j} height="h-8" width="w-8" />
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-3">
+                  {Array.from({ length: 3 }, (_, j) => (
+                    <div key={j} className="flex items-center gap-3">
+                      <Skeleton height="h-4" width="w-4" />
+                      <Skeleton height="h-4" width="w-48" />
+                    </div>
+                  ))}
+                </div>
+                <div>
+                  <Skeleton height="h-16" width="w-full" className="mb-3" />
+                  <Skeleton height="h-8" width="w-32" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function PaymentMethodsPageSkeleton() {
+  return (
+    <div className="min-h-screen bg-background">
+      <div className="container mx-auto px-4 py-8 max-w-4xl">
+        {/* Header */}
+        <div className="flex items-center gap-4 mb-8">
+          <Skeleton height="h-10" width="w-24" />
+          <div className="flex-1 space-y-2">
+            <Skeleton height="h-8" width="w-48" />
+            <Skeleton height="h-4" width="w-64" />
+          </div>
+          <Skeleton height="h-10" width="w-40" />
+        </div>
+
+        {/* Security Notice */}
+        <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 mb-6">
+          <div className="flex items-center gap-3">
+            <Skeleton height="h-6" width="w-6" />
+            <div className="space-y-2 flex-1">
+              <Skeleton height="h-5" width="w-32" />
+              <Skeleton height="h-4" width="w-3/4" />
+            </div>
+          </div>
+        </div>
+
+        {/* Payment Methods */}
+        <div className="space-y-4">
+          {Array.from({ length: 3 }, (_, i) => (
+            <div key={i} className="bg-card border border-border rounded-lg p-6">
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center gap-4">
+                  <Skeleton height="h-5" width="w-5" />
+                  <div className="space-y-1">
+                    <Skeleton height="h-5" width="w-32" />
+                    <Skeleton height="h-4" width="w-24" />
+                  </div>
+                </div>
+                <div className="flex gap-2">
+                  <Skeleton height="h-8" width="w-8" />
+                  <Skeleton height="h-8" width="w-8" />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <Skeleton height="h-8" width="w-8" />
+                    <div className="space-y-1">
+                      <Skeleton height="h-4" width="w-40" />
+                      <Skeleton height="h-3" width="w-24" />
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Skeleton height="h-5" width="w-5" />
+                    <Skeleton height="h-4" width="w-32" />
+                  </div>
+                </div>
+                <div className="flex flex-col justify-between">
+                  <Skeleton height="h-8" width="w-32" className="mb-3" />
+                  <Skeleton height="h-8" width="w-28" />
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function ProfileEditPageSkeleton() {
+  return (
+    <div className="min-h-screen bg-background">
+      <div className="container mx-auto px-4 py-8 max-w-4xl">
+        {/* Header */}
+        <div className="flex items-center gap-4 mb-8">
+          <Skeleton height="h-10" width="w-24" />
+          <div className="flex-1 space-y-2">
+            <Skeleton height="h-8" width="w-48" />
+            <Skeleton height="h-4" width="w-64" />
+          </div>
+          <Skeleton height="h-10" width="w-40" />
+        </div>
+
+        {/* Tabs */}
+        <div className="flex space-x-1 bg-muted p-1 rounded-lg mb-6">
+          {Array.from({ length: 3 }, (_, i) => (
+            <Skeleton key={i} height="h-10" width="w-32" />
+          ))}
+        </div>
+
+        {/* Content */}
+        <div className="space-y-6">
+          {/* Avatar Section */}
+          <div className="bg-card border border-border rounded-lg p-6">
+            <Skeleton height="h-6" width="w-32" className="mb-4" />
+            <div className="flex items-center gap-6">
+              <Skeleton height="h-24" width="w-24" rounded="lg" />
+              <div className="space-y-3">
+                <Skeleton height="h-5" width="w-48" />
+                <Skeleton height="h-4" width="w-64" />
+                <Skeleton height="h-8" width="w-32" />
+              </div>
+            </div>
+          </div>
+
+          {/* Form Fields */}
+          <div className="bg-card border border-border rounded-lg p-6 space-y-4">
+            <Skeleton height="h-6" width="w-32" className="mb-4" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {Array.from({ length: 6 }, (_, i) => (
+                <div key={i} className="space-y-2">
+                  <Skeleton height="h-4" width="w-20" />
+                  <Skeleton height="h-10" width="w-full" />
+                </div>
+              ))}
+            </div>
+            <div className="space-y-2">
+              <Skeleton height="h-4" width="w-20" />
+              <Skeleton height="h-20" width="w-full" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

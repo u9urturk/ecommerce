@@ -90,52 +90,60 @@ export function ProductCategoryPageSkeleton() {
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
-        {/* Breadcrumb */}
-        <div className="flex items-center gap-2 mb-6">
-          <Skeleton height="h-4" width="w-16" />
-          <span className="text-muted-foreground">/</span>
-          <Skeleton height="h-4" width="w-20" />
-          <span className="text-muted-foreground">/</span>
-          <Skeleton height="h-4" width="w-24" />
+        {/* Header Skeleton */}
+        <div className="flex items-center gap-4 mb-8">
+          <Skeleton height="h-9" width="w-24" rounded="lg" />
+          <div className="flex-1">
+            <Skeleton height="h-8" width="w-48" rounded="lg" className="mb-2" />
+            <Skeleton height="h-4" width="w-32" rounded="lg" />
+          </div>
         </div>
 
-        {/* Category Header */}
-        <div className="text-center mb-12 space-y-4">
-          <Skeleton height="h-10" width="w-64 mx-auto" />
-          <Skeleton height="h-5" width="w-96 mx-auto" />
-          <Skeleton height="h-32" width="w-full" rounded="lg" />
+        {/* Introduction Skeleton */}
+        <div className="text-center mb-12">
+          <div className="max-w-2xl mx-auto space-y-4">
+            <Skeleton height="h-8" width="w-64 mx-auto" rounded="lg" />
+            <Skeleton height="h-4" width="w-96 mx-auto" rounded="lg" />
+            <Skeleton height="h-4" width="w-80 mx-auto" rounded="lg" />
+          </div>
         </div>
 
-        {/* Filters Sidebar + Products */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-          {/* Filters Sidebar */}
-          <div className="lg:col-span-1 space-y-6">
-            {Array.from({ length: 4 }, (_, i) => (
-              <div key={i} className="space-y-3">
-                <Skeleton height="h-5" width="w-24" />
-                <div className="space-y-2">
-                  {Array.from({ length: 5 }, (_, j) => (
-                    <div key={j} className="flex items-center gap-2">
-                      <Skeleton height="h-4" width="w-4" rounded="sm" />
-                      <Skeleton height="h-4" width="w-20" />
-                    </div>
-                  ))}
+        {/* Categories Grid Skeleton */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {Array.from({ length: 12 }, (_, i) => (
+            <div key={i} className="bg-card shadow-card rounded-lg overflow-hidden">
+              {/* Image Skeleton */}
+              <Skeleton height="h-32" width="w-full" />
+              
+              {/* Content Skeleton */}
+              <div className="p-6 space-y-3">
+                <Skeleton height="h-6" width="w-full" rounded="lg" />
+                <Skeleton height="h-4" width="w-full" rounded="lg" />
+                <Skeleton height="h-4" width="w-3/4" rounded="lg" />
+                
+                <div className="flex items-center justify-between pt-2">
+                  <div className="flex items-center gap-2">
+                    <Skeleton height="h-4" width="w-4" rounded="sm" />
+                    <Skeleton height="h-4" width="w-20" rounded="lg" />
+                  </div>
+                  <Skeleton height="h-8" width="w-16" rounded="lg" />
                 </div>
               </div>
-            ))}
-          </div>
-
-          {/* Products Grid */}
-          <div className="lg:col-span-3">
-            <div className="flex justify-between items-center mb-6">
-              <Skeleton height="h-5" width="w-32" />
-              <Skeleton height="h-10" width="w-40" />
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {Array.from({ length: 9 }, (_, i) => (
-                <ProductCardSkeleton key={i} />
-              ))}
+          ))}
+        </div>
+
+        {/* Bottom Section Skeleton */}
+        <div className="text-center mt-16">
+          <div className="bg-muted/30 rounded-lg p-8 space-y-6">
+            <Skeleton height="h-6" width="w-64 mx-auto" rounded="lg" />
+            <div className="space-y-2">
+              <Skeleton height="h-4" width="w-96 mx-auto" rounded="lg" />
+              <Skeleton height="h-4" width="w-80 mx-auto" rounded="lg" />
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Skeleton height="h-12" width="w-32" rounded="lg" />
+              <Skeleton height="h-12" width="w-32" rounded="lg" />
             </div>
           </div>
         </div>
