@@ -22,34 +22,47 @@
 @layer components {
   /* Primary button for CTAs */
   .btn-primary {
-    @apply inline-flex items-center justify-center rounded-md bg-primary px-6 py-3 text-sm font-medium text-primary-foreground shadow-sm hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition-colors;
+    @apply inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow-sm hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition-all duration-200;
   }
 
   /* Secondary button */
   .btn-secondary {
-    @apply inline-flex items-center justify-center rounded-md bg-secondary px-6 py-3 text-sm font-medium text-secondary-foreground shadow-sm hover:bg-secondary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition-colors;
+    @apply inline-flex items-center justify-center rounded-lg bg-secondary px-4 py-2 text-sm font-medium text-secondary-foreground shadow-sm hover:bg-secondary/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-secondary/20 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition-all duration-200;
+  }
+
+  /* Outline button variant */
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-lg border border-border bg-background px-4 py-2 text-sm font-medium hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 transition-all duration-200;
   }
 
   /* Product card styles */
   .product-card {
-    @apply bg-card border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-200 hover:-translate-y-1;
+    @apply bg-card border border-border rounded-lg overflow-hidden hover:shadow-card transition-all duration-200 hover:-translate-y-1;
   }
 
   /* Badge styles */
   .badge {
-    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium border;
   }
 
   .badge-success {
-    @apply bg-success/10 text-success;
+    @apply bg-success/10 text-success border-success/20;
   }
 
   .badge-warning {
-    @apply bg-warning/10 text-warning;
+    @apply bg-warning/10 text-warning border-warning/20;
   }
 
   .badge-danger {
-    @apply bg-danger/10 text-danger;
+    @apply bg-destructive/10 text-destructive border-destructive/20;
+  }
+
+  .badge-primary {
+    @apply bg-primary/10 text-primary border-primary/20;
+  }
+
+  .badge-secondary {
+    @apply bg-secondary/50 text-secondary-foreground border-secondary;
   }
 
   /* Form styles */
@@ -62,10 +75,46 @@
   }
 
   .form-input {
-    @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+    @apply flex h-10 w-full rounded-lg border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all duration-200;
+  }
+
+  .form-textarea {
+    @apply min-h-[80px] w-full rounded-lg border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-none transition-all duration-200;
+  }
+
+  /* Card styles */
+  .card {
+    @apply rounded-lg border border-border bg-card text-card-foreground shadow-card;
+  }
+
+  .card-header {
+    @apply flex flex-col space-y-1.5 p-6 pb-4;
+  }
+
+  .card-title {
+    @apply text-lg font-semibold leading-none tracking-tight;
+  }
+
+  .card-description {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .card-content {
+    @apply p-6 pt-0;
+  }
+
+  .card-footer {
+    @apply flex items-center p-6 pt-0;
   }
 
   /* Text truncation utilities */
+  .line-clamp-1 {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   .line-clamp-2 {
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -78,6 +127,16 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  /* Loading skeleton */
+  .skeleton {
+    @apply animate-pulse rounded-md bg-muted;
+  }
+
+  /* Focus ring utility */
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/20 focus-visible:ring-offset-2 focus-visible:ring-offset-background;
   }
 }
 
@@ -141,34 +200,40 @@
   --input: 214.3 31.8% 91.4%;
   --ring: 221.2 83.2% 53.3%;
   --success: 142.1 76.2% 36.3%;
+  --success-foreground: 0 0% 100%;
   --warning: 38.1 89.5% 55.5%;
+  --warning-foreground: 38.1 89.5% 25%;
   --danger: 0 84.2% 60.2%;
+  --danger-foreground: 0 0% 100%;
 }
 
 /* Dark theme (default for e-commerce) */
 .dark, body {
-  --background: 0 0% 8%;  /* Çok koyu yerine daha açık gri */
-  --foreground: 0 0% 95%;  /* Daha açık beyaz */
-  --card: 0 0% 12%;  /* Card arka planı açık gri */
-  --card-foreground: 0 0% 95%;
-  --popover: 0 0% 10%;
-  --popover-foreground: 0 0% 95%;
+  --background: 220 13% 9%;  /* Daha sıcak koyu ton */
+  --foreground: 220 14% 96%;  /* Daha yumuşak beyaz */
+  --card: 220 13% 12%;  /* Card arka planı daha sıcak */
+  --card-foreground: 220 14% 96%;
+  --popover: 220 13% 11%;
+  --popover-foreground: 220 14% 96%;
   --primary: 263 67% 51%; /* Brand Purple #6D28D9 */
-  --primary-foreground: 210 40% 98%;
-  --secondary: 0 0% 18%; /* Açık gri card'lar için */
-  --secondary-foreground: 0 0% 95%;
-  --muted: 0 0% 15%;  /* Muted alanlar için açık gri */
-  --muted-foreground: 0 0% 70%;  /* Daha açık muted text */
-  --accent: 0 0% 18%;
-  --accent-foreground: 0 0% 95%;
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 0 0% 20%;  /* Açık border */
-  --input: 0 0% 15%;
-  --ring: 221.2 83.2% 53.3%;
-  --success: 142.1 70.6% 45.3%;
-  --warning: 38.1 96.1% 65.9%;
-  --danger: 0 62.8% 30.6%;
+  --primary-foreground: 220 14% 98%;
+  --secondary: 220 13% 16%; /* Açık gri card'lar için */
+  --secondary-foreground: 220 14% 96%;
+  --muted: 220 13% 14%;  /* Muted alanlar için */
+  --muted-foreground: 220 14% 65%;  /* Daha okunabilir muted text */
+  --accent: 220 13% 16%;
+  --accent-foreground: 220 14% 96%;
+  --destructive: 0 62.8% 50.6%;
+  --destructive-foreground: 220 14% 98%;
+  --border: 220 13% 18%;  /* Daha belirgin border */
+  --input: 220 13% 16%;
+  --ring: 263 67% 51%;
+  --success: 142 71% 45%;
+  --success-foreground: 0 0% 100%;
+  --warning: 38 92% 50%;
+  --warning-foreground: 38 92% 15%;
+  --danger: 0 72% 51%;
+  --danger-foreground: 0 0% 100%;
 }
 
 /* Custom body styles for dark e-commerce theme */

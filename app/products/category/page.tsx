@@ -100,10 +100,10 @@ export default function CategoryPage() {
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="flex items-center gap-4 mb-8">
-          <Link href="/products">
+          <Link href="/">
             <Button variant="outline" size="sm" className="flex items-center gap-2">
               <ArrowLeft className="w-4 h-4" />
-              Ürünler
+              Ana Sayfa
             </Button>
           </Link>
           <div className="flex-1">
